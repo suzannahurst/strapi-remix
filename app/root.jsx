@@ -1,4 +1,5 @@
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -7,10 +8,18 @@ import {
   ScrollRestoration,
 } from "remix";
 
-export function meta() {
-  return { title: "New Remix App" };
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://unpkg.com/@picocss/pico@latest/css/pico.min.css",
+    },
+  ];
 }
 
+export function meta() {
+  return { title: "Productivity Tips" };
+}
 export default function App() {
   return (
     <html lang="en">
@@ -21,6 +30,13 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <nav style={{ marginLeft: 10 }}>
+          <h1>
+            <Link to="/" style={{ color: "var(--h1-color)" }}>
+              Productivity Tips
+            </Link>
+          </h1>
+        </nav>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
